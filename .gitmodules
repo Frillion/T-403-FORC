@@ -1,0 +1,3 @@
+[submodule "Wave_File_Generator"]
+	path = Wave_File_Generator
+	url = git@github.com:Mamigako/Wave_File_Generator.git
