@@ -1,3 +1,6 @@
 [submodule "Wave_File_Generator"]
 	path = Wave_File_Generator
 	url = git@github.com:Mamigako/Wave_File_Generator.git
+[submodule "Cpp_Course"]
+	path = Cpp_Course
+	url = git@github.com:Danielzhx/Cpp_Course.git
