@@ -1,0 +1,112 @@
+From this point on we are moving over to c++11
+we will have nicer features and don't have to do as much manual work
+Algorithms/Datastructures of the standard library:
+    fill(iterator, iterator, value) example:
+        vector<int> V;
+        std::fill(V.begin(),V.end(),-3)
+    
+    this will fill the vector from V.begin() to V.end() with the value -3
+
+    iterators:
+        - iterators can be thought of as a location in a list like structure
+        and it can be moved with a call to next() like so:
+        next(V.begin()) will get the second element of any list
+
+        - can also be used in place of an index in .insert() functions 
+
+        - Accessing an iterator that is out of bounds e.g. above V.end() is undefined behaviour
+
+        - Many different types of iterators exist so we must be careful while passing them to functions
+        - some types are:
+            LegacyIterator - allows for dereferencing an iterator a.k.a. *iter to grab a value
+            LegacyForwardIterator - allows for movement of the iterator only in the forward direction
+            LegacyBidirectionalIterator - allows for movement of the iterator both forward and backward
+
+    foreach loops:
+        iterators can be used to create a foreach loop like is found in many different languages
+        such as python, Example:
+
+        for(vector<int>::iterator it = V.begin(); it != v.end(); it++){
+            cout << *it << "\n";
+        }
+
+        this should print each element of any list mind the type at the start of the for loop
+        (it needs to be changed to the type of the list).
+
+    iota:
+        iota(iterator start, iterator end, value);
+        - function fills the array from start to end with increasing values starting at value
+        - Example:
+            iota(V.start(), V.end(), 10);
+            will fille the vector with the values:
+                10 11 12 13 14 15 16 ... etc.
+
+    all_good loop:
+        std::all_of(iterator start, iterator end, condition(function))
+        this function will check wether all values from start to end satisfy the condition that is passed in.
+        Example:
+            bool is_nonnegative(int x){
+                return x >= 0;
+            }
+
+            all_of(V.start(), V.end(), is_nonnegative);
+
+            this will only return true if all elements of the vector are non negative x >= 0.
+
+    generate:
+        std::generate(iterator start, iterator end, function);
+        this function is simillar to the iota function except in this case it fills the area with the result of the passend in function
+
+    lower/upper bound:
+        lower_bound(iterator start, iterator end, value);
+        returns an iterator to the first value that is smaller than the value passed in.
+        Example:
+            in a vector the elements are as follows:
+                1 5 10 20 25 30 37 50
+
+            calling the function with:
+                lower_bound(V.start(), V.end(), 10);
+
+            the iterator returned from this will return 5 when dereferenced
+
+
+        upper_bound(iterator start, iterator end, value);
+        returns an iterator to the first value that is bigger than the value passed in.
+        Example:
+            in a vector the elements are as follows:
+                1 5 10 20 25 30 37 50
+
+            calling the function with:
+                lower_bound(V.start(), V.end(), 30);
+
+            the iterator returned from this will return 37 when dereferenced
+
+    merge:
+        this is the standard libraries merge sort solution
+        merge(iterator start, iterator middle, iterator middle, iterator end, iterator result)
+        this will merge the list from start to middle with the list middle to end and store the result in result
+        it will also to the size comparrisons like it is in merge sort
+
+    c++11 new features:
+        the "auto"/decltype type keywords
+            this is the foreach loop from before:
+                for(vector<int>::iterator it = V.begin(); it != v.end(); it++){
+                    cout << *it << "\n";
+                }
+
+            now we might not want to write this entire thing because its quite cumbersome and if we change the list type
+            we have to change it everywhere.
+            This is where auto can come in auto allows the compiler to decide which type something is based on context
+            so now this loop can become:
+
+                for(auto it = V.begin(); it != v.end(); it++){
+                    cout << *it << "\n";
+                }
+
+            Sometimes we want a type to be more explicit meaning we still want to know the type or tell the compiler more information
+            in this case we can use decltype:
+                vector<int> v(n, 0);
+                decltype(v) u;
+
+            this declares that u will be of the same type as v explicitly marking it as such to the compiler
+
