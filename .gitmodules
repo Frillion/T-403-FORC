@@ -4,3 +4,9 @@
 [submodule "Cpp_Course"]
 	path = Cpp_Course
 	url = git@github.com:Danielzhx/Cpp_Course.git
+[submodule "Huffman-Encoder"]
+	path = Huffman-Encoder
+	url = git@github.com:Mamigako/Huffman-Encoder.git
+[submodule "Storage_Sensei"]
+	path = Storage_Sensei
+	url = git@github.com:Mamigako/Storage_Sensei.git
