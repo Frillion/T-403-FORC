@@ -10,3 +10,6 @@
 [submodule "Storage_Sensei"]
 	path = Storage_Sensei
 	url = git@github.com:Mamigako/Storage_Sensei.git
+[submodule "CPP-MINI-MAX"]
+	path = CPP-MINI-MAX
+	url = git@github.com:Frillion/CPP-MINI-MAX.git

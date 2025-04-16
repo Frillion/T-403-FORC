@@ -1,0 +1,14 @@
+dependency flags:
+    -MMD -MP 
+    will let the make file check the version of the library dependencies
+    and recompile your files if these dependencies are updated.
+
+
+$^ will expand all dependencies in a MakeFile $< first dependency.
+
+sockets:
+    Windows:
+        - checking for windows can be done with the _WIN32 flag
+        - sockets must have a type of SOCKET
+
+
